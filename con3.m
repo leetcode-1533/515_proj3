@@ -24,6 +24,7 @@ d0 = 0.5*points(1) + 0.5*(points(2) + (points(2) - points(3))/3);
 dn = 0.5*(points(end-1) + (points(end-1)-points(end-2))/3)+0.5*points(end);
 
 vector = [6*points(2) - 1.5*d0; 6*points(3:end-2)'; 6*points(end-1) - 1.5*dn];
-
+tic;
 d_vector = inv(matrix) * vector;
+toc;
 d_vector = [points(1); 0.5*points(1) + 0.5*(points(2) + (points(2) - points(3))/3); d_vector; 0.5*(points(end-1) + (points(end-1)-points(end-2))/3)+0.5*points(end); points(end)];

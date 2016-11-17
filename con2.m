@@ -22,5 +22,9 @@ matrix(1,1) = 5;
 matrix(end, end) = 5;
 vector = [7*points(2) - points(1); 6*points(3:end-2)'; 7*points(end-1) - points(end)];
 
-d_vector = inv(matrix) * vector;
+% d_vector = inv(matrix) * vector;
+[l,u] = LUfact(matrix);
+temp = Forwardsubstitution(l, vector);
+d_vector = Backsubstitution(u, temp);
+
 d_vector = [points(1); 2*points(1)/3 - 2*points(2)/3 + d_vector(1); d_vector; 2*points(end)/3 - 2*points(end-1)/3 + d_vector(end); points(end)];
