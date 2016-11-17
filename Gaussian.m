@@ -12,12 +12,13 @@ function [M,P,U] = Gaussian(A)
     end
     M = eye(n);
     P = eye(n);
+    U=A;
 
 
     for col =1:n-1
         
         %find the row with max pivot value
-        [maxvalue, pivot] = max(A(col:n,col));
+        [maxvalue, pivot] = max(U(col:n,col));
         pivot = pivot+col-1;
 
         %compute Transposition matrix Pi and do the pivoting
@@ -27,11 +28,7 @@ function [M,P,U] = Gaussian(A)
         Pi(pivot,:)=temp;
         M=Pi*M;
         P=Pi*P;
-        if col == 1
-            U = Pi*A;
-        else
-            U = Pi*U;
-        end
+        U = Pi*U;
 
         %compute elementary marix E and do the elimination for the lower
         %rows

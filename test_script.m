@@ -14,6 +14,12 @@ end
 % Use the script to plot the bazier curve
 % scatter(xy(1,:), xy(2,:),'r*')
 % scatter(dpoints(1,:), dpoints(2,:), 'ko')
+hold on
+plot_bazier(con1(xy), 'r');
+plot_bazier(con2(xy), 'g');
+plot_bazier(con3(xy), 'b');
+plot_bazier(con4(xy), 'y');
+
 figure()
 subplot(2,2,1);
 scatter(xy(1,:), xy(2,:),'b*')
