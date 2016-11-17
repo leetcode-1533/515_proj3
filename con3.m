@@ -20,7 +20,10 @@ function d_vector = cal1d(points, N)
 matrix = full(gallery('tridiag',N-2,1,4,1));
 matrix(1,1) = 7/2;
 matrix(end, end) = 7/2;
-vector = [6*points(2) - 1.5*points(1); 6*points(3:end-2)'; 6*points(end-1) - 1.5*points(end)];
+d0 = 0.5*points(1) + 0.5*(points(2) + (points(2) - points(3))/3);
+dn = 0.5*(points(end-1) + (points(end-1)-points(end-2))/3)+0.5*points(end);
+
+vector = [6*points(2) - 1.5*d0; 6*points(3:end-2)'; 6*points(end-1) - 1.5*dn];
 
 d_vector = inv(matrix) * vector;
 d_vector = [points(1); 0.5*points(1) + 0.5*(points(2) + (points(2) - points(3))/3); d_vector; 0.5*(points(end-1) + (points(end-1)-points(end-2))/3)+0.5*points(end); points(end)];

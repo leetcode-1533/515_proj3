@@ -21,4 +21,3 @@ plot_bazier(con1(xy), 'r');
 plot_bazier(con2(xy), 'g');
 plot_bazier(con3(xy), 'b');
 plot_bazier(con4(xy), 'y');
-
