@@ -1,4 +1,4 @@
-function plot_bazier(xy)
+function plot_bazier(xy, color)
 
 hold on
 axis([0,1,0,1])
@@ -42,10 +42,10 @@ for i = 1: N-3
     b_mat = squeeze(b(:,i,:));
     b_mat_points = b_mat';
     
-    last_bpoint_plot = plot(b_mat_points(1,:),b_mat_points(2,:), 'x:');
+%     last_bpoint_plot = plot(b_mat_points(1,:),b_mat_points(2,:), 'x:');
     
-    c_xy = bezier3(t, b_mat'); % using stanard formula
-    last_bazier_plot = plot(c_xy(1,:), c_xy(2,:));
+    c_xy = bezier3(t, b_mat'); % using standard formula
+    last_bazier_plot = plot(c_xy(1,:), c_xy(2,:), color);
 end
 
 
